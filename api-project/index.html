@@ -8,7 +8,37 @@
   </head>
   <body>
     <div id="app">
-      <h2 id="api"></h2>
+      <div id="custom" class="custom">
+        <h2 id="custom">Customize</h2>
+        <h3>Select Type:</h3>
+        <select type="input" id="inputtype">
+          <option></option>
+          <option>busywork</option>
+          <option>charity</option>
+          <option>cooking</option>
+          <option>diy</option>
+          <option>education</option>
+          <option>music</option>
+          <option>recreational</option>
+          <option>relaxation</option>
+          <option>social</option>
+        </select>
+        <h3>Amount of Participants:</h3>
+        <select type="input" id="inputparticipants">
+          <option></option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <div class="response">
+        <h1 id="activity">Activity:</h1>
+        <h2 id="type">Type:</h2>
+        <h2 id="participants">Number of Participants:</h2>
+        <h2 id="price">Price:</h2>
+      </div>
     </div>
     <script type="module" src="/main.js"></script>
   </body>
