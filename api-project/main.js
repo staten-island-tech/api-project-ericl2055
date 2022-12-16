@@ -1,5 +1,4 @@
 const URL = "https://www.boredapi.com/api/activity";
-
 function api() {}
 async function getData(URL) {
   try {
