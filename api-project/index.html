@@ -3,16 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API</title>
   </head>
   <body>
-    <div id="app">
+    <div class="all" id="total">
       <div id="custom" class="custom">
-        <h2 id="custom">Customize</h2>
+        <h2 id="custom">Customize</h3>
         <h3>Select Type:</h3>
         <select type="input" id="inputtype">
-          <option></option>
+          <option>Select</option>
           <option>busywork</option>
           <option>charity</option>
           <option>cooking</option>
@@ -24,20 +25,22 @@
           <option>social</option>
         </select>
         <h3>Amount of Participants:</h3>
-        <select type="input" id="inputparticipants">
-          <option></option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="1"
+            max="5"
+            value="3"
+            class="slider"
+            id="participants"
+          />
+          <h3 id="demo"></h3>
+        </div>
       </div>
       <div class="response">
-        <h1 id="activity">Activity:</h1>
-        <h2 id="type">Type:</h2>
-        <h2 id="participants">Number of Participants:</h2>
-        <h2 id="price">Price:</h2>
+        <h2 id="activity">Activity:</h2>
+        <h4 id="type">Type:</h4>
+        <h4 id="participant">Number of Participants:</h4>
       </div>
     </div>
     <script type="module" src="/main.js"></script>
