@@ -12,7 +12,8 @@
   .all {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        padding: 20px;
+      column-gap: 100px;
   }
   body,html,* {
     font-size: 62.5%; 
@@ -22,6 +23,9 @@
   }
   option {
     font-size: 20px;
+  }
+  button{
+    font-size: 14px;
   }
   :root {
     --light:  #ffffff;
@@ -52,3 +56,4 @@ h5 {
 h1,h2,h3,h4,h5 {
 
 }
+
