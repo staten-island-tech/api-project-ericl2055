@@ -6,6 +6,7 @@ const DOM = {
   participants: document.getElementById("participant"),
   slider: document.getElementById("participants"),
   partoutput: document.getElementById("demo"),
+  submit: document.getElementById("submit"),
   new: document.getElementById("new"),
   buttontype: document.getElementById("buttontype"),
   buttonpart: document.getElementById("buttonpart"),

@@ -1,10 +1,9 @@
 const randomURL = "https://www.boredapi.com/api/activity";
-let submit = document.querySelectorAll("submit");
 
-function submit() {
-  card = document.querySelectorAll("#customize");
-  card.forEach((button) => {
-    button.addEventListener("click", function () {
+const partoutput = document.querySelectorAll("#demo");
+const slider = document.querySelectorAll("#participants");
+
+DOM.submit.addEventListener("click", function () {
   const URL = `http://www.boredapi.com/api/activity?participants=${DOM.slider.value}`;
   const URL2 = `http://www.boredapi.com/api/activity?type=${DOM.selecttype.value}`;
   if (DOM.selecttype.value == "1") {
@@ -13,9 +12,8 @@ function submit() {
   } else {
     remove();
     gettype(URL2);
-  }}
-})
-
+  }
+});
 DOM.new.addEventListener("click", function () {
   remove();
   getrandom(randomURL);
@@ -31,6 +29,14 @@ function removecustom() {
   let card = document.querySelectorAll("#customize");
   card.forEach((card) => {
     card.remove();
+  });
+}
+function slidervalue() {
+  let card = document.querySelectorAll("#customize");
+  card.forEach((slider) => {
+    slider.oninput = function () {
+      partoutput.innerHTML = this.value;
+    };
   });
 }
 async function gettype(URL2) {
@@ -150,12 +156,14 @@ DOM.buttontype.addEventListener("click", function () {
     <option value="recreational">recreational</option>
     <option value="relaxation">relaxation</option>
     <option value="social">social</option>
-  </select></div>`
+  </select>
+  <button id="submit">Submit</button></div>`
   );
 });
 
 DOM.buttonpart.addEventListener("click", function () {
   removecustom();
+  slidervalue();
   DOM.custom.insertAdjacentHTML(
     "beforeend",
     `<div id="customize"><h3>Amount of Participants:</h3>
@@ -172,10 +180,6 @@ DOM.buttonpart.addEventListener("click", function () {
       <button id="submit">Submit</button>
     </div></div>`
   );
-  DOM.partoutput.innerHTML = DOM.slider.value;
-  DOM.slider.oninput = function () {
-    DOM.partoutput.innerHTML = this.value;
-  };
 });
 getrandom(randomURL);
 import { DOM } from "./DOM";
