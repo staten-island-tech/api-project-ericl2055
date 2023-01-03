@@ -1,24 +1,76 @@
 const randomURL = "https://www.boredapi.com/api/activity";
-
+import { DOM } from "./DOM";
 const partoutput = document.querySelectorAll("#demo");
 const slider = document.querySelectorAll("#participants");
+const selecttype = document.querySelectorAll("#inputtype");
 
-DOM.submit.addEventListener("click", function () {
-  const URL = `http://www.boredapi.com/api/activity?participants=${DOM.slider.value}`;
-  const URL2 = `http://www.boredapi.com/api/activity?type=${DOM.selecttype.value}`;
-  if (DOM.selecttype.value == "1") {
-    remove();
-    getparticipant(URL);
-  } else {
-    remove();
-    gettype(URL2);
-  }
-});
+function filter() {
+  let card = document.querySelectorAll("#customize");
+  console.log(selecttype.values);
+  card.forEach((button) => {
+    button.addEventListener("click", function () {
+      console.log(button);
+      const URL = `http://www.boredapi.com/api/activity?participants=${slider.value}`;
+      const URL2 = `http://www.boredapi.com/api/activity?type=${selecttype.value}`;
+      if (selecttype.value == "1") {
+        remove();
+        getparticipant(URL);
+      } else {
+        remove();
+        gettype(URL2);
+      }
+    });
+  });
+}
+
 DOM.new.addEventListener("click", function () {
   remove();
   getrandom(randomURL);
 });
 
+DOM.buttontype.addEventListener("click", function () {
+  removecustom();
+
+  DOM.custom.insertAdjacentHTML(
+    "beforeend",
+    `<div id="customize"><h3>Select Type:</h3>
+  <select type="input" id="inputtype">
+    <option value="1">Select</option>
+    <option value="busywork">busywork</option>
+    <option value="charity">charity</option>
+    <option value="cooking">cooking</option>
+    <option value="diy">diy</option>
+    <option value="education">education</option>
+    <option value="music">music</option>
+    <option value="recreational">recreational</option>
+    <option value="relaxation">relaxation</option>
+    <option value="social">social</option>
+  </select>
+  <button id="submit">Submit</button></div>`
+  );
+  filter();
+});
+
+DOM.buttonpart.addEventListener("click", function () {
+  removecustom();
+  DOM.custom.insertAdjacentHTML(
+    "beforeend",
+    `<div id="customize"><h3>Amount of Participants:</h3>
+    <div class="slidecontainer">
+      <input
+        type="range"
+        min="1"
+        max="5"
+        value="3"
+        class="slider"
+        id="participants"
+      />
+      <h3 id="demo"></h3>
+      <button id="submit">Submit</button>
+    </div></div>`
+  );
+  filter();
+});
 function remove() {
   let card = document.querySelectorAll("#card");
   card.forEach((card) => {
@@ -31,14 +83,7 @@ function removecustom() {
     card.remove();
   });
 }
-function slidervalue() {
-  let card = document.querySelectorAll("#customize");
-  card.forEach((slider) => {
-    slider.oninput = function () {
-      partoutput.innerHTML = this.value;
-    };
-  });
-}
+
 async function gettype(URL2) {
   try {
     const response = await fetch(URL2);
@@ -64,8 +109,10 @@ async function gettype(URL2) {
       </div>`
     );
     console.log(data);
+    console.log(URL2);
   } catch (error) {
     console.log(error);
+    console.log(URL2);
     DOM.custom.insertAdjacentHTML(
       "beforebegin",
       `<h5>Sorry, no activity provided.</h5>`
@@ -140,46 +187,5 @@ async function getrandom(randomURL) {
     );
   }
 }
-DOM.buttontype.addEventListener("click", function () {
-  removecustom();
-  DOM.custom.insertAdjacentHTML(
-    "beforeend",
-    `<div id="customize"><h3>Select Type:</h3>
-  <select type="input" id="inputtype">
-    <option value="1">Select</option>
-    <option value="busywork">busywork</option>
-    <option value="charity">charity</option>
-    <option value="cooking">cooking</option>
-    <option value="diy">diy</option>
-    <option value="education">education</option>
-    <option value="music">music</option>
-    <option value="recreational">recreational</option>
-    <option value="relaxation">relaxation</option>
-    <option value="social">social</option>
-  </select>
-  <button id="submit">Submit</button></div>`
-  );
-});
 
-DOM.buttonpart.addEventListener("click", function () {
-  removecustom();
-  slidervalue();
-  DOM.custom.insertAdjacentHTML(
-    "beforeend",
-    `<div id="customize"><h3>Amount of Participants:</h3>
-    <div class="slidecontainer">
-      <input
-        type="range"
-        min="1"
-        max="5"
-        value="3"
-        class="slider"
-        id="participants"
-      />
-      <h3 id="demo"></h3>
-      <button id="submit">Submit</button>
-    </div></div>`
-  );
-});
 getrandom(randomURL);
-import { DOM } from "./DOM";
