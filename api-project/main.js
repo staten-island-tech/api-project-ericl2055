@@ -5,11 +5,9 @@ const slider = document.querySelectorAll("#participants");
 const selecttype = document.querySelectorAll("#inputtype");
 
 function filter() {
-  let card = document.querySelectorAll("#customize");
-  console.log(selecttype.values);
-  card.forEach((button) => {
+  let submit = document.querySelectorAll("#submit");
+  submit.forEach((button) => {
     button.addEventListener("click", function () {
-      console.log(button);
       const URL = `http://www.boredapi.com/api/activity?participants=${slider.value}`;
       const URL2 = `http://www.boredapi.com/api/activity?type=${selecttype.value}`;
       if (selecttype.value == "1") {
@@ -178,7 +176,6 @@ async function getrandom(randomURL) {
     <h3>${participants}</h2>
       </div>`
     );
-    console.log(data);
   } catch (error) {
     console.log(error);
     DOM.custom.insertAdjacentHTML(
