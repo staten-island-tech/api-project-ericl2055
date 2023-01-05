@@ -1,34 +1,6 @@
 const randomURL = "https://www.boredapi.com/api/activity";
 import { DOM } from "./DOM";
-const partoutput = document.querySelectorAll("#demo");
-const slider = document.querySelectorAll("#participants");
-const selecttype = document.querySelectorAll("#inputtype");
-
-function filter() {
-  let submit = document.querySelectorAll("#submit");
-  submit.forEach((button) => {
-    button.addEventListener("click", function () {
-      const URL = `http://www.boredapi.com/api/activity?participants=${slider.value}`;
-      const URL2 = `http://www.boredapi.com/api/activity?type=${selecttype.value}`;
-      if (selecttype.value == "1") {
-        remove();
-        getparticipant(URL);
-      } else {
-        remove();
-        gettype(URL2);
-      }
-    });
-  });
-}
-
-DOM.new.addEventListener("click", function () {
-  remove();
-  getrandom(randomURL);
-});
-
-DOM.buttontype.addEventListener("click", function () {
-  removecustom();
-
+function select() {
   DOM.custom.insertAdjacentHTML(
     "beforeend",
     `<div id="customize"><h3>Select Type:</h3>
@@ -44,9 +16,60 @@ DOM.buttontype.addEventListener("click", function () {
     <option value="relaxation">relaxation</option>
     <option value="social">social</option>
   </select>
-  <button id="submit">Submit</button></div>`
+  <button id="submittype">Submit</button></div>`
   );
-  filter();
+}
+function slider() {
+  let slider = document.querySelectorAll("#participants");
+  let output = document.querySelectorAll("#demo");
+  output[0].innerHTML = "Value : " + slider[0].value;
+  slider[0].oninput = function () {
+    output[0].innerHTML = "Value : " + this.value;
+  };
+}
+function filtertype() {
+  let submit = document.querySelectorAll("#submittype");
+  let selecttype = document.querySelectorAll("#inputtype");
+  submit.forEach((button) => {
+    button.addEventListener("click", function () {
+      const URL2 = `http://www.boredapi.com/api/activity?type=${selecttype[0].value}`;
+      if (selecttype[0].value == "1") {
+        remove();
+        removerror();
+        getparticipant(URL);
+      } else {
+        remove();
+        removerror();
+        gettype(URL2);
+      }
+    });
+  });
+}
+
+function filterpart() {
+  let submit = document.querySelectorAll("#submitpart");
+  let slider = document.querySelectorAll("#participants");
+  submit.forEach((button) => {
+    button.addEventListener("click", function () {
+      const URL = `http://www.boredapi.com/api/activity?participants=${slider[0].value}`;
+      remove();
+      removerror();
+      getparticipant(URL);
+    });
+  });
+}
+
+DOM.new.addEventListener("click", function () {
+  remove();
+  removerror();
+  getrandom(randomURL);
+});
+
+DOM.buttontype.addEventListener("click", function () {
+  removecustom();
+  select();
+  filtertype();
+  removerror();
 });
 
 DOM.buttonpart.addEventListener("click", function () {
@@ -64,11 +87,19 @@ DOM.buttonpart.addEventListener("click", function () {
         id="participants"
       />
       <h3 id="demo"></h3>
-      <button id="submit">Submit</button>
+      <button id="submitpart">Submit</button>
     </div></div>`
   );
-  filter();
+  filterpart();
+  slider();
+  removerror();
 });
+function removerror() {
+  let card = document.querySelectorAll("#error");
+  card.forEach((card) => {
+    card.remove();
+  });
+}
 function remove() {
   let card = document.querySelectorAll("#card");
   card.forEach((card) => {
@@ -106,14 +137,10 @@ async function gettype(URL2) {
     <h3>${participants}</h2>
       </div>`
     );
-    console.log(data);
-    console.log(URL2);
   } catch (error) {
-    console.log(error);
-    console.log(URL2);
-    DOM.custom.insertAdjacentHTML(
+    DOM.activity.insertAdjacentHTML(
       "beforebegin",
-      `<h5>Sorry, no activity provided.</h5>`
+      `<h5 id="error">Sorry, no activity provided.</h5>`
     );
   }
 }
@@ -142,12 +169,10 @@ async function getparticipant(URL) {
     <h3>${participants}</h2>
       </div>`
     );
-    console.log(data);
   } catch (error) {
-    console.log(error);
-    DOM.custom.insertAdjacentHTML(
+    DOM.activity.insertAdjacentHTML(
       "beforebegin",
-      `<h5>Sorry, no activity provided.</h5>`
+      `<h5 id="error">Sorry, no activity provided.</h5>`
     );
   }
 }
@@ -177,8 +202,7 @@ async function getrandom(randomURL) {
       </div>`
     );
   } catch (error) {
-    console.log(error);
-    DOM.custom.insertAdjacentHTML(
+    DOM.activity.insertAdjacentHTML(
       "beforebegin",
       `<h5>Sorry, no activity provided.</h5>`
     );
@@ -186,3 +210,4 @@ async function getrandom(randomURL) {
 }
 
 getrandom(randomURL);
+select();
