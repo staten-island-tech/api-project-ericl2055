@@ -121,18 +121,18 @@ async function gettype(URL2) {
     let type = data.type;
     let participants = data.participants;
     DOM.activity.insertAdjacentHTML(
-      "afterend",
+      "beforeend",
       `<div class = "card" id = "card">
       <h3>${activity}</h3>   </div>`
     );
     DOM.type.insertAdjacentHTML(
-      "afterend",
+      "beforeend",
       `<div class = "card" id = "card">
      <h3>${type}</h3>
       </div>`
     );
     DOM.participants.insertAdjacentHTML(
-      "afterend",
+      "beforeend",
       `<div class = "card" id = "card">
     <h3>${participants}</h2>
       </div>`
@@ -153,18 +153,18 @@ async function getparticipant(URL) {
     let type = data.type;
     let participants = data.participants;
     DOM.activity.insertAdjacentHTML(
-      "afterend",
+      "beforeend",
       `<div class = "card" id = "card">
       <h3>${activity}</h3>   </div>`
     );
     DOM.type.insertAdjacentHTML(
-      "afterend",
+      "beforeend",
       `<div class = "card" id = "card">
      <h3>${type}</h3>
       </div>`
     );
     DOM.participants.insertAdjacentHTML(
-      "afterend",
+      "beforeend",
       `<div class = "card" id = "card">
     <h3>${participants}</h2>
       </div>`
@@ -185,18 +185,18 @@ async function getrandom(randomURL) {
     let type = data.type;
     let participants = data.participants;
     DOM.activity.insertAdjacentHTML(
-      "afterend",
+      "beforeend",
       `<div class = "card" id = "card">
       <h3>${activity}</h3>   </div>`
     );
     DOM.type.insertAdjacentHTML(
-      "afterend",
+      "beforeend",
       `<div class = "card" id = "card">
      <h3>${type}</h3>
       </div>`
     );
     DOM.participants.insertAdjacentHTML(
-      "afterend",
+      "beforeend",
       `<div class = "card" id = "card">
     <h3>${participants}</h2>
       </div>`
