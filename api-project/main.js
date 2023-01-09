@@ -139,7 +139,7 @@ async function gettype(URL2) {
     );
   } catch (error) {
     DOM.activity.insertAdjacentHTML(
-      "beforebegin",
+      "beforeend",
       `<h5 id="error">Sorry, no activity provided.</h5>`
     );
   }
@@ -171,7 +171,7 @@ async function getparticipant(URL) {
     );
   } catch (error) {
     DOM.activity.insertAdjacentHTML(
-      "beforebegin",
+      "beforeend",
       `<h5 id="error">Sorry, no activity provided.</h5>`
     );
   }
