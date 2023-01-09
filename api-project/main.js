@@ -211,3 +211,4 @@ async function getrandom(randomURL) {
 
 getrandom(randomURL);
 select();
+filtertype();
