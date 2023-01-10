@@ -24,7 +24,7 @@
 }
 .response {
   position: absolute;
-  top: 200px;
+  top: 174px;
   left:750px;
 }
 #customize {
@@ -44,7 +44,7 @@
 #new {
   position: absolute;
   left:0px;
-  top: 450px;
+  top: 500px;
   width: 150px;
   border-radius: 6px;
 }
@@ -65,13 +65,14 @@
 #type{
   position: absolute;
   left: 0px;
-  top: 150px;
+  top: 20rem;
+  width: 50rem;
 }
 #participant{
   position: absolute;
   left: 0px;
-  top:300px;
-  width: 500px;
+  top:35rem;
+  width: 50rem;
 }
   body,html,* {
     font-size: 62.5%; 
@@ -135,3 +136,64 @@ h5 {
 h1,h2,h3,h4,h5 {
 }
 
+@media screen and (max-width: 768px) {
+  h1{
+    font-size: 5rem;
+    text-align:center;
+    width: 50rem;
+  }
+  h2{
+    font-size: 3rem;
+  }
+  h3{
+    font-size: 2rem;
+  }
+  h4{
+    font-size: 2rem;
+  }
+  h5{
+    font-size: 1rem;
+  }
+  .custom{
+    left:2rem;
+    top:10rem;
+  }
+  #buttontype{
+    font-size: 1.2rem;
+  }
+  #buttonpart{
+    font-size: 1.2rem;
+  }
+  select{
+    font-size: 1.5rem;
+  }
+  option{
+    font-size: 1.7rem;
+  }
+  #submittype{
+    height: 2.2rem;
+    font-size: 1.5rem;
+  }
+.response{
+  left: 23rem;
+  top:10rem;
+}
+#activity{
+  width: 25rem;
+}
+#type{
+  top: 15rem;
+}
+#participant{
+  top: 25rem;
+}
+#new{
+  left: 2rem;
+  top: 37rem;
+  font-size: 1.3rem;
+  width: 18rem;
+}
+.card{
+  width: 25rem;
+}
+}
