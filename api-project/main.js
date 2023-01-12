@@ -4,6 +4,7 @@ function select() {
   DOM.custom.insertAdjacentHTML(
     "beforeend",
     `<div id="customize"><h3>Select Type:</h3>
+    <div id = "flexselect">
   <select type="input" id="inputtype">
     <option value="1">Select</option>
     <option value="busywork">busywork</option>
@@ -16,7 +17,8 @@ function select() {
     <option value="relaxation">relaxation</option>
     <option value="social">social</option>
   </select>
-  <button id="submittype">Submit</button></div>`
+  <button id="submittype">Submit</button></div>
+  </div>`
   );
 }
 function slider() {
@@ -123,24 +125,24 @@ async function gettype(URL2) {
     DOM.activity.insertAdjacentHTML(
       "beforeend",
       `<div class = "card" id = "card">
-      <h3>${activity}</h3>   </div>`
+      <h2>${activity}</h2>   </div>`
     );
     DOM.type.insertAdjacentHTML(
       "beforeend",
       `<div class = "card" id = "card">
-     <h3>${type}</h3>
+     <h2>${type}</h3>
       </div>`
     );
     DOM.participants.insertAdjacentHTML(
       "beforeend",
       `<div class = "card" id = "card">
-    <h3>${participants}</h2>
+    <h2>${participants}</h2>
       </div>`
     );
   } catch (error) {
     DOM.activity.insertAdjacentHTML(
       "beforeend",
-      `<h5 id="error">Sorry, no activity provided.</h5>`
+      `<h4 id="error">Sorry, no activity provided.</h4>`
     );
   }
 }
@@ -155,24 +157,24 @@ async function getparticipant(URL) {
     DOM.activity.insertAdjacentHTML(
       "beforeend",
       `<div class = "card" id = "card">
-      <h3>${activity}</h3>   </div>`
+      <h2>${activity}</h2>   </div>`
     );
     DOM.type.insertAdjacentHTML(
       "beforeend",
       `<div class = "card" id = "card">
-     <h3>${type}</h3>
+     <h2>${type}</h2>
       </div>`
     );
     DOM.participants.insertAdjacentHTML(
       "beforeend",
       `<div class = "card" id = "card">
-    <h3>${participants}</h2>
+    <h2>${participants}</h2>
       </div>`
     );
   } catch (error) {
     DOM.activity.insertAdjacentHTML(
       "beforeend",
-      `<h5 id="error">Sorry, no activity provided.</h5>`
+      `<h4 id="error">Sorry, no activity provided.</h4>`
     );
   }
 }
@@ -187,24 +189,24 @@ async function getrandom(randomURL) {
     DOM.activity.insertAdjacentHTML(
       "beforeend",
       `<div class = "card" id = "card">
-      <h3>${activity}</h3>   </div>`
+      <h2>${activity}</h2>   </div>`
     );
     DOM.type.insertAdjacentHTML(
       "beforeend",
       `<div class = "card" id = "card">
-     <h3>${type}</h3>
+     <h2>${type}</h2>
       </div>`
     );
     DOM.participants.insertAdjacentHTML(
       "beforeend",
       `<div class = "card" id = "card">
-    <h3>${participants}</h2>
+    <h2>${participants}</h2>
       </div>`
     );
   } catch (error) {
     DOM.activity.insertAdjacentHTML(
       "beforebegin",
-      `<h5>Sorry, no activity provided.</h5>`
+      `<h4>Sorry, no activity provided.</h4>`
     );
   }
 }
