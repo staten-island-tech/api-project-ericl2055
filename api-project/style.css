@@ -148,7 +148,51 @@ h5 {
 h1,h2,h3,h4,h5 {
 }
 
+@media screen and (max-width: 768px) {
+  h1{
+    font-size: 7rem;
+    font-weight: 500;
+  }
+.all{
+  display: flex;
+  flex-direction: column;
 
+}
+.custom{
+  padding:0rem;
+}
+#custom{
+  text-align: left;
+  font-size: 6rem;
+  font-weight: 500;
+}
+#buttontype{
+  font-size: 3.5rem;
+  
+}
+#inputtype{
+  height: 3.5rem;
+  font-size: 2.5rem;
+}
+option{
+  font-size: 1.8rem;
+}
+#submittype{
+  height: 3.5rem;
+}
+.response{
+  padding-left: 0rem;
+}
+.card{
+  width:33rem
+}
+h2{
+  font-size: 4rem;
+}
+#participant{
+  width: 33rem;
+}
+}
 @media screen and (max-width: 390px) {
   h1{
     font-size: 5.5rem;
