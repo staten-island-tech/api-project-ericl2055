@@ -88,7 +88,7 @@ DOM.buttonpart.addEventListener("click", function () {
         class="slider"
         id="participants"
       />
-      <h3 id="demo"></h3>
+      <label for="participants" id="demo"></label>
       <button id="submitpart">Submit</button>
     </div></div>`
   );
