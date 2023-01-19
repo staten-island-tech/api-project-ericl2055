@@ -3,7 +3,7 @@ import { DOM } from "./DOM";
 function select() {
   DOM.custom.insertAdjacentHTML(
     "beforeend",
-    `<div id="customize"><h3>Select Type:</h3>
+    `<div id="customize"><h2>Select Type:</h2>
     <div id = "flexselect">
   <select type="input" id="inputtype">
     <option value="1">Select</option>
@@ -78,7 +78,7 @@ DOM.buttonpart.addEventListener("click", function () {
   removecustom();
   DOM.custom.insertAdjacentHTML(
     "beforeend",
-    `<div id="customize"><h3>Amount of Participants:</h3>
+    `<div id="customize"><h2>Amount of Participants:</h2>
     <div class="slidecontainer">
       <input
         type="range"
